@@ -58,3 +58,8 @@ app.controller('clientController', ['$scope', '$http', '$location', '$state', '$
 		});
 	}
 }]);
+
+	// Open new tab for tweeter feed...
+	/*$scope.redirectVCUhoops = function () {
+        $state.open('https://www.google.com', '_blank');
+    };*/
