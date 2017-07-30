@@ -1,6 +1,6 @@
 /*home.html*/
-body.backbackground {
-  background-color: #696969;
+body {
+  background-color: #e8e8e4;
 }
 
 div.streetbackground {
@@ -17,15 +17,83 @@ div#backpic {
     height: 415px;
 }
 
-.customDiv {
-  margin: 3px;
-  min-height: 300px;
-  background-color: #97988e;
-  text-align: center;
+/* nav font */
+@font-face {
+    font-family: navfont;
+    src: url(Lemondrop.ttf);
+}
 
+.navfont {
+  font-family: navfont;
+  color: yellow;
+}
+
+/* lombardy brand */
+.navbar-inverse .navbar-brand:focus, .navbar-inverse .navbar-brand:hover {
+    color: yellow;
+}
+
+/* register/login hover color */
+.navbar-inverse .navbar-nav>.active>a:hover {
+  color: yellow;
+  background-color: #222222;
+}
+
+/* active color */
+.navbar-inverse .navbar-nav>.active>a {
+    color: #9d9d9d;
+    background-color: #222222;
+}
+
+.customDiv {
+    margin: 3px;
+    margin-top: 20px;
+    min-height: 300px;
+    background-color: #bdbdb7;
+    border: 2px solid black;
+    border-radius: 10px;
+    text-align: center;
 }
 
 /* Left Column */
+#bb {
+    height: 185px;
+    width: auto;
+    max-width: 205px;
+}
+
+#br {
+    height: 195px;
+    width: auto;
+    max-width: 200px;
+}
+
+
+/*  Middle Colunm */
+#oldmenu {
+    height: 355px;
+    width: auto;
+}
+
+#store {
+    height: 385px;
+    width: 555px;
+    border: 2px solid black;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Right Column */
+.gramps {
+    height: 195px;
+    width: auto;
+    max-width: 225px;
+}
+
+.family {
+    height: 200px;
+    width: 205px;
+}
 
 /* Twitter */
 #tweet {
@@ -38,10 +106,34 @@ div#backpic {
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* Right Column */
-.family {
-    margin-left: 5px;
-    vertical-align: middle;
-    width: 200px;
-    height: 200px;
+/* sign-up page */
+@font-face {
+  font-family: userHeaderfont;
+  src: url(Lemondrop.ttf);
 }
+
+.userHeader {
+  font-family: userHeaderfont;
+  color: #9d9d9d;
+}
+
+#lowerHeader {
+    font-family: userHeaderfont;
+    margin: -10px 20px 10px;
+    text-align: right;
+    color: #463e3e;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #463e3e;
+    border-color: black;
+}
+
+.btn-primary:hover {
+    color: black;
+    background-color: #e6e61c;
+    border-color: black;
+}
+
+/* login page */

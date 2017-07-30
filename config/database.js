@@ -1,4 +1,4 @@
 module.exports = {
-  'secret': 'devdacticIsAwesome',
-  'database': 'mongodb://localhost/catered'
+  'secret': 'jerome is the secret',
+  'database': 'mongodb://localhost/tokenAPI'
 };

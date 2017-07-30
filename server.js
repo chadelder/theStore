@@ -1,19 +1,33 @@
 var express     = require('express');
 var app         = express();
+var path        = require('path');
 var bodyParser  = require('body-parser');
 var morgan      = require('morgan');
 var mongoose    = require('mongoose');
-var passport	  = require('passport');
 var config      = require('./config/database'); // get db config file
-var User        = require('./app/models/user'); // get the mongoose model
-var Order       = require('./app/models/orders');
 var port        = process.env.PORT || 3000;
-var jwt         = require('jwt-simple');
+var expressJwt = require("express-jwt");
 //var cors        = require('cors');
 
 // get our request parameters
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+
+// Make the app use the express-jwt authentication middleware on anything starting with "/api"
+app.use("/api", expressJwt({secret: config.secret}));
+app.use("/api/order", require("./apiRoutes/orderRoutes"));
+app.use("/auth", require("./apiRoutes/authRoutes"));
+
+
+// log to console
+app.use(morgan('dev'));
+
+app.use(express.static(path.join(__dirname, "client")))
+//app.use(express.static(__dirname + '/client'));
+
+// connect to database
+mongoose.connect(config.database);
 
 //cors issue
 app.use(function (req, res, next) {
@@ -26,183 +40,6 @@ res.end();
 next();
 }
 });
-
-// Set up passport middlewear
-const requireAuth = passport.authenticate('jwt', {session: false});
-
-
-// log to console
-app.use(morgan('dev'));
-
-app.use(express.static(__dirname + '/client'));
-
-// Use the passport package in our application
-app.use(passport.initialize());
-
-// demo Route (GET http://localhost:8080)
-/*app.get('/', function(req, res) {
-  res.send('Hello! The API is at http://localhost:' + port + '/api');
-});*/
-
-// connect to database
-mongoose.connect(config.database);
-
-// pass passport for configuration
-require('./config/passport')(passport);
-
-// bundle our routes
-var apiRoutes = express.Router();
-
-// create a new user account (POST http://localhost:8080/api/signup)
-apiRoutes.post('/signup', function(req, res) {
-  if (!req.body.name || !req.body.password) {
-    res.json({success: false, msg: 'Please pass name and password.'});
-  } else {
-    var newUser = new User({
-      name: req.body.name,
-      password: req.body.password
-    });
-    // save the user
-    newUser.save(function(err) {
-      if (err) {
-        return res.json({success: false, msg: 'Username already exists.'});
-      }
-      res.json({success: true, msg: 'Successful created new user.'});
-    });
-  }
-});
-
-// route to authenticate a user (POST http://localhost:8080/api/authenticate)
-apiRoutes.post('/authenticate', function(req, res) {
-  User.findOne({
-    name: req.body.name
-  }, function(err, user) {
-    if (err) throw err;
-
-    if (!user) {
-      res.send({success: false, msg: 'Authentication failed. User not found.'});
-    } else {
-      // check if password matches
-      user.comparePassword(req.body.password, function (err, isMatch) {
-        if (isMatch && !err) {
-          // if user is found and password is right create a token
-          var token = jwt.encode(user, config.secret);
-          // return the information including token as JSON
-          res.json({success: true, token: 'JWT ' + token});
-        } else {
-          res.send({success: false, msg: 'Authentication failed. Wrong password.'});
-        }
-      });
-    }
-  });
-});
-
-// route to a restricted info (GET http://localhost:8080/api/memberinfo)
-apiRoutes.get('/memberinfo', passport.authenticate('jwt', { session: false}), function(req, res) {
-  var token = getToken(req.headers);
-  if (token) {
-    var decoded = jwt.decode(token, config.secret);
-    User.findOne({
-      name: decoded.name
-    }, function(err, user) {
-        if (err) throw err;
-
-        if (!user) {
-          return res.status(403).send({success: false, msg: 'Authentication failed. User not found.'});
-        } else {
-          res.json({success: true, msg: 'Welcome in the member area ' + user.name + '!'});
-        }
-    });
-  } else {
-    return res.status(403).send({success: false, msg: 'No token provided.'});
-  }
-});
-
-getToken = function (headers) {
-  if (headers && headers.authorization) {
-    var parted = headers.authorization.split(' ');
-    if (parted.length === 2) {
-      return parted[1];
-    } else {
-      return null;
-    }
-  } else {
-    return null;
-  }
-};
-
-// Get Orders (s))
-
-apiRoutes.get('/orders', requireAuth, function(req, res) {
-  Order.find(function(err, orders) {
-        if(err) {
-          throw err;
-        }
-        res.json(orders);
-        //console.log(req.params._id);
-    });
-  });
-
-/* Original */
-/*apiRoutes.get('/orders', function(req, res) {
-  Order.getOrders(function(err, orders) {
-    if(err) {
-      throw err;
-    }
-    //console.log(orders)
-    res.json(orders);
-    console.log(orders);
-  });
-});*/
-
-//Get Order(s) by Id
-apiRoutes.get('/orders/:_id', function(req, res){
-	Order.getOrderById(req.params._id, function(err, order){
-		if(err){
-			throw err;
-		}
-		res.json(order);
-    console.log(req.params._id);
-	});
-});
-
-// Post an order
-apiRoutes.post('/orders', requireAuth, function(req, res, token){
-  	var order = req.body;
-  	Order.addOrder(order, function(err, order){
-  		if(err){
-  			throw err;
-  		}
-      //console.log(token);
-  		res.json(order);
-  	});
-  });
-
-// Put
-/*apiRoutes.put('/orders/:_id', function(req, res){
-	var id = req.params._id;
-	var order = req.body;
-	Order.updateOrder(id, order, {}, function(err, order){
-		if(err){
-			throw err;
-		}
-		res.json(order);
-	});
-});
-
-// Delete Order
-apiRoutes.delete('/orders/:_id', function(req, res){
-	var id = req.params._id;
-	Order.removeOrder(id, function(err, order){
-		if(err){
-			throw err;
-		}
-		res.json(order);
-	});
-});*/
-
-// connect the api routes under /api/*
-app.use('/api', apiRoutes);
 
 // Start the server
 app.listen(port);

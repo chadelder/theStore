@@ -1,4 +1,4 @@
-var app = angular.module('theStore', ['ui.router']);
+var app = angular.module('theStore', ['ui.router','Order.Auth', 'CreateOrder']);
   //console.log(app);
 app.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
@@ -6,38 +6,27 @@ app.config(function($stateProvider, $urlRouterProvider) {
     url: '/main',
     //abstract: true,
     templateUrl: 'static/view/main.html',
-    controller: 'AppCtrl'
-  })
-  .state('login', {
-    url: '/login',
-    templateUrl: 'static/userAuth/login.html',
-    controller: 'LoginCtrl'
-  })
-  .state('register', {
-  url: '/register',
-  templateUrl: 'static/userAuth/register.html',
-  controller: 'RegisterCtrl'
+    //controller: 'AppCtrl'
   })
   .state('catered', {
   url: '/catered',
   templateUrl: 'static/view/catered.html',
-  controller: 'InsideCtrl',
-  //controller: 'clientController'
+  controller: 'OrderController',
   })
   .state('vieworder', {
   url: '/vieworder',
-  templateUrl: 'static/view/view_order.html',
-  controller: 'InsideCtrl'
+  templateUrl: 'components/orders/order.html',
+  controller: 'OrderController'
   })
   .state('edit', {
     url: '/edit/:id',
     templateUrl: 'static/view/edit_order.html',
-    controller: 'clientController'
+    controller: 'OrderController'
   })
   .state('delete', {
     url: '/vieworder',
-    templateUrl: 'static/view/view_order.html',
-    controller: 'clientController'
+    templateUrl: 'components/orders/order.html',
+    controller: 'OrderController'
   })
 
   $urlRouterProvider.otherwise('/main');

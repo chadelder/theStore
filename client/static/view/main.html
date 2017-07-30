@@ -1,10 +1,60 @@
 <body>
-  <div class="streetbackground"> <!--ng-controller="HomeController"-->
+  <div class="streetbackground">
     <div class="container" id="backpic"></div>
   </div>
 
     <div class="container">
-      <!-- Example row of columns -->
+      <!-- First Row -->
+      <div class="row">
+        <div class="col-md-3">
+          <div class="customDiv"><br>
+            <img src="libraries/css/pics/cranberrygose.png" id="bb">
+              <h4>Beer of the Month</h4>
+          </div>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-md-6">
+          <div><br>
+            <img src="libraries/css/pics/store.jpg" id="store">
+          </div>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+       </div>
+        <div class="col-md-3">
+          <div class="customDiv"><br>
+            <img class="gramps" src="libraries/css/pics/gramps.jpg">
+              <h4>The Owner</h4><p>aka. RE, The Mayor, Eubank, Gramps
+          </div>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+      </div>
+      <!-- Second Row -->
+      <div class="row">
+        <div class="col-md-3">
+          <div class="customDiv"><br>
+            <img src="libraries/css/pics/cava.jpg" id="br">
+              <h4>Restaurant of the Month</h4>
+          </div>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-md-6">
+          <div class="customDiv"><br>
+            <img src="libraries/css/pics/oldmenu.jpg" id="oldmenu">
+          </div>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+       </div>
+        <div class="col-md-3">
+          <div class="customDiv"><br>
+            <img class="family" src="libraries/css/pics/family.jpg">
+          </div>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+      </div>
       <div class="row">
         <div class="col-md-3">
           <div class="customDiv"><br>
@@ -26,7 +76,10 @@
        </div>
         <div class="col-md-3">
           <div class="customDiv"><br>
-            <img class="family" src="libraries/css/pics/family.jpg">
+            <img src="libraries/css/pics/vcuLogo.png">
+            <h4>Season tickets for over 30 years says it all.</h4>
+            <!-- put in ui-router extension -->
+            <a href="https://twitter.com/vcu_hoops?lang=en" ng-click="redirectVCUhoops()"><i class="fa fa-twitter" id="tweet"></i></a>
           </div>
           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>

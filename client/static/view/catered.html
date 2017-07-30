@@ -52,18 +52,9 @@
               <input ng-model="order.quantity" class="form-control" type="text" value="Quantity">
       			</div>
     					<input type="submit" class="btn btn-info" value="Add" ng-click="counter(1)" ng-disabled="limit(4)">
-              <p>{{count}}</p>
-              <p>{{order.bread}}</p>
               <a class="btn btn-primary" ui-sref="vieworder">View Details</a>
               <br>
-              <p>{{order.bread}}</p>
             </div>
-            <button class="button button-full button-assertive" ng-click="destroySession()">
-                Destroy token
-            </button>
-            <button class="button button-full button-balanced" ng-click="getInfo()">
-                Get Memberinfo
-            <div class="buttons">
             <button class="button button-clear" ng-click="logout()">Logout</button>
             </div>
                 <!--a href="#/order/edit/:id">Edit Order</a-->
