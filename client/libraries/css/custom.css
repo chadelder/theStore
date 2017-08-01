@@ -68,6 +68,18 @@ div#backpic {
     max-width: 200px;
 }
 
+.btn-default {
+    color: #333;
+    background-color: #bdbdb7;
+    border-color: #080808;
+}
+
+.btn-default:hover {
+    color: black;
+    background-color: yellow;
+    border-color: black;
+}
+
 
 /*  Middle Colunm */
 #oldmenu {
@@ -83,9 +95,14 @@ div#backpic {
     text-align: center;
 }
 
+p {
+  text-align: center;
+  margin: 10px;
+}
+
 /* Right Column */
 .gramps {
-    height: 195px;
+    height: 175px;
     width: auto;
     max-width: 225px;
 }
