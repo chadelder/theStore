@@ -1,5 +1,4 @@
 var app = angular.module('theStore', ['ui.router','Order.Auth', 'CreateOrder']);
-  //console.log(app);
 app.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
   .state('main', {

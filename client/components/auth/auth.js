@@ -15,7 +15,7 @@ app.config(function ($stateProvider) {
         .state('logout', {
             url: '/logout',
             controller: "LogoutController",
-            template: ""
+            templateUrl: "static/view/main.html"
         })
 });
 

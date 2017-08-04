@@ -18,7 +18,6 @@ app.service("OrderService", ["$http", function ($http) {
 }]);
 
 app.controller("OrderController", ["$scope", "$http", "$state", "$stateParams", "OrderService", function ($scope, $http, $state, $stateParams, OrderService) {
-    console.log("im here");
     $scope.order = {};
     $scope.orders = [];
 
@@ -35,17 +34,18 @@ app.controller("OrderController", ["$scope", "$http", "$state", "$stateParams", 
 		console.log($scope.order);
 		$http.post('/api/order/', $scope.order).then(function(response){
 			$state.go('catered');
-      $state.reload();
+      //$state.reload();
 		});
     // Only three orders
-	$scope.count = 0;
+	/*$scope.count = 0;
 		$scope.counter = function( x ){
 				$scope.count += x;
-		}
+		}*/
 		$scope.limit = function( y ){
 		return ( $scope.count == y ) ? true : false;
-		}
+  }
 	 };
+
    // Update Order
 	$scope.updateOrder = function(){
 		var orderId = $stateParams.id;
