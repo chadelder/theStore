@@ -128,6 +128,17 @@ h4 {
     -moz-osx-font-smoothing: grayscale;
 }
 
+/* bottom row */
+.bottomRow {
+      margin: 88px;
+      margin-top: 20px;
+      min-height: 300px;
+      background-color: #bdbdb7;
+      border: 2px solid black;
+      border-radius: 10px;
+      text-align: center;
+  }
+
 /* sign-up page */
 @font-face {
   font-family: userHeaderfont;
@@ -172,4 +183,36 @@ h4 {
     text-align: center;
     margin-top: 100px;
     margin-left: 60px;
+}
+
+.yourOrder {
+  margin-top: 30px;
+}
+
+.editDelete {
+  color: black;
+}
+
+a:hover {
+    color: #e6e61c;
+    text-decoration: underline;
+}
+
+.toBeOrdered {
+    margin: 50px;
+    margin-top: 0px;
+    min-height: 235px;
+    margin-left: 100px;
+    margin-right: 100px;
+    background-color: #bdbdb7;
+    border: 2px solid black;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.buy {
+    background-color: #bdbdb7;
+    height: 185px;
+    width: auto;
+    max-width: 205px;
 }
