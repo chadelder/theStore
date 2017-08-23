@@ -48,11 +48,23 @@ div#backpic {
 .customDiv {
     margin: 3px;
     margin-top: 20px;
-    min-height: 300px;
+    min-height: 330px;
     background-color: #bdbdb7;
     border: 2px solid black;
     border-radius: 10px;
     text-align: center;
+}
+
+/* middle row */
+
+.middleRow {
+  margin: 3px;
+  margin-top: 20px;
+  min-height: 392px;
+  background-color: #bdbdb7;
+  border: 2px solid black;
+  border-radius: 10px;
+  text-align: center;
 }
 
 /* Left Column */
@@ -60,24 +72,44 @@ div#backpic {
     height: 185px;
     width: auto;
     max-width: 205px;
+    border-radius: 10px;
 }
 
 #br {
     height: 195px;
     width: auto;
     max-width: 200px;
+    border-radius: 10px;
 }
 
 .btn-default {
-    color: #333;
-    background-color: #bdbdb7;
-    border-color: #080808;
+    color: #fff;
+    background-color: #463e3e;
+    border-color: black;
 }
 
 .btn-default:hover {
     color: black;
-    background-color: #e6e668;
+    background-color: #e6e668; /* yellow for buttons */
     border-color: black;
+}
+
+.btn-primary.active, .btn-primary:active, .open>.dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color: #020202;
+    border-color: #e6e668;
+}
+
+.btn-primary.focus, .btn-primary:focus {
+    color: #fff;
+    background-color: #020202;
+    border-color: #e6e668;
+}
+
+.btn-primary:active:focus {
+    color: #fff;
+    background-color: #020202;
+    border-color: #e6e668;
 }
 
 
@@ -110,11 +142,13 @@ h4 {
     height: 175px;
     width: auto;
     max-width: 225px;
+    border-radius: 10px;
 }
 
 .family {
     height: 200px;
     width: 205px;
+    border-radius: 10px;
 }
 
 /* Twitter */
@@ -132,13 +166,29 @@ h4 {
 .bottomRow {
       margin: 88px;
       margin-top: 20px;
-      min-height: 300px;
+      min-height: 330px;
       background-color: #bdbdb7;
       border: 2px solid black;
       border-radius: 10px;
       text-align: center;
   }
 
+#dog {
+    height: 197px ;
+    width: auto;
+    max-width: 205px;
+    border-radius: 10px
+}
+
+#vcu {
+  border-radius: 10px;
+}
+
+.schedule {
+  color: #fff;
+  background-color: #463e3e;
+  border-color: black;
+}
 /* sign-up page */
 @font-face {
   font-family: userHeaderfont;

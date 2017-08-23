@@ -15,6 +15,12 @@
             </div>
 
             <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" class="form-control" ng-model="user.email">
+                <span class="text-danger" ng-show="user.email">{{email}}</span>
+            </div>
+
+            <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" id="password" class="form-control" ng-model="user.password">
             </div>
@@ -24,6 +30,7 @@
                 <input type="password" id="passwordRepeat" class="form-control" ng-model="passwordRepeat">
                 <span class="text-danger" ng-show="passwordMessage">{{passwordMessage}}</span>
             </div>
+
             <button class="center-block btn btn-primary btn-lg" ng-click="signup(user)">Signup</button>
         </form>
     </div>
