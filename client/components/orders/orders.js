@@ -32,7 +32,7 @@ app.controller("OrderController", ["$scope", "$http", "$state", "$stateParams", 
   };
     $scope.addOrder = function() {
 		console.log($scope.order);
-		$http.post('/api/order/', $scope.order).then(function(response){
+		$http.post('/api/order', $scope.order).then(function(response){
 			$state.go('catered');
       //$state.reload();
 		});
@@ -60,5 +60,15 @@ app.controller("OrderController", ["$scope", "$http", "$state", "$stateParams", 
 			$state.go('vieworder');
 			//window.location.href='#/addOrder';
 		});
-	 }
+  };
+
+  $scope.user = {};
+  $scope.users = [];
+  $scope.getUser = function(){
+		$http.get('/auth').then(function(users){
+			$scope.users = users.data;
+			console.log($scope.users);
+		})
+};
+
   }]);

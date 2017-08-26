@@ -41,4 +41,11 @@ authRoutes.post("/login", function (req, res) {
     });
 });
 
+authRoutes.get("/", function (req, res) {
+        User.find({user: req.body.name}, function (err, send) {
+            if (err) return res.status(500).send(err);
+            return res.send(send);
+        });
+    });
+
 module.exports = authRoutes;
