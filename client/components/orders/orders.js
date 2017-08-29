@@ -27,11 +27,12 @@ app.controller("OrderController", ["$scope", "$http", "$state", "$stateParams", 
     (function getOrders() {
         OrderService.getOrders().then(function (orders) {
             $scope.orders = orders;
+            //console.log(orders);
         });
     })();
   };
     $scope.addOrder = function() {
-		console.log($scope.order);
+		//console.log($scope.order);
 		$http.post('/api/order', $scope.order).then(function(response){
 			$state.go('catered');
       //$state.reload();
@@ -64,11 +65,19 @@ app.controller("OrderController", ["$scope", "$http", "$state", "$stateParams", 
 
   $scope.user = {};
   $scope.users = [];
+
   $scope.getUser = function(){
 		$http.get('/auth').then(function(users){
 			$scope.users = users.data;
-			console.log($scope.users);
+			//console.log($scope.users);
 		})
-};
+  };
+
+  $scope.email = function() {
+    $http.post('/send', $scope.user).then(function(response) {
+      console.log($scope.user);
+      $state.go('vieworder');
+    });
+  };
 
   }]);

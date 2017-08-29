@@ -7,6 +7,7 @@ var mongoose    = require('mongoose');
 var config      = require('./config/database'); // get db config file
 var port        = process.env.PORT || 3000;
 var expressJwt = require("express-jwt");
+var nodemailer = require('nodemailer');
 //var cors        = require('cors');
 
 // get our request parameters
@@ -18,7 +19,7 @@ app.use(bodyParser.json());
 app.use("/api", expressJwt({secret: config.secret}));
 app.use("/api/order", require("./apiRoutes/orderRoutes"));
 app.use("/auth", require("./apiRoutes/authRoutes"));
-
+app.use("/send", require("./apiRoutes/emailRoute"));
 
 // log to console
 app.use(morgan('dev'));

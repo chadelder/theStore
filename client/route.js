@@ -27,6 +27,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
     templateUrl: 'components/orders/order.html',
     controller: 'OrderController'
   })
+  .state('send', {
+    url: '/send',
+    templateUrl: 'components/orders/order.html',
+    controller: 'OrderController'
+  })
 
   $urlRouterProvider.otherwise('/main');
 });

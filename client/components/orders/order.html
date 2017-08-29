@@ -23,9 +23,9 @@
           <p><span style="font-weight:bold">Price:</span> {{total}}</p>
         </div>
     <div ng-init="getUser()" ng-init="getOrders()">
-      <div ng-repeat="user in users | limitTo : -1">
-        <div>
-          <button class="center-block btn btn-primary btn-lg" ng-click="email(send)">Send Order</button><br>
+      <div ng-repeat="user in users | limitTo : 1">
+        <div ng-init="email()">
+          <button class="center-block btn btn-primary btn-lg" ng-click="email()" ui-sref="send">Send Order</button><br>
             <p>{{user.email}}</p>
         </div>
       </div>

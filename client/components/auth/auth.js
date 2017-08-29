@@ -17,7 +17,7 @@ app.config(function ($stateProvider) {
             controller: "LogoutController",
             templateUrl: "static/view/main.html"
         })
-});
+      });
 
 app.service("TokenService", [function () {
     var userToken = "token";
@@ -46,7 +46,6 @@ app.service("UserService", ["$http", "$location", "TokenService", function ($htt
             return response;
         });
     };
-
     this.logout = function () {
         TokenService.removeToken();
         $location.path("/");
