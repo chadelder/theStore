@@ -16,14 +16,14 @@ var UserSchema = new Schema({
       type: String,
       required: true
     },
-  password: {
-        type: String,
-        required: true
-    },
-  admin: {
-    type: Boolean,
-    default: false
-  }
+    password: {
+          type: String,
+          required: true
+      },
+    admin: {
+      type: Boolean,
+      default: false
+    }
 });
 
 UserSchema.pre("save", function (next) {

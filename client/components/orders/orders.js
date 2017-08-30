@@ -73,9 +73,9 @@ app.controller("OrderController", ["$scope", "$http", "$state", "$stateParams", 
 		})
   };
 
-  $scope.email = function() {
-    $http.post('/send', $scope.user).then(function(response) {
-      console.log($scope.user);
+  $scope.email = function(send) {
+    $http.post('/send', send).then(function(response) {
+      console.log($scope.users);
       $state.go('vieworder');
     });
   };

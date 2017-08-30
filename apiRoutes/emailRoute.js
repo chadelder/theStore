@@ -6,10 +6,10 @@ var nodemailer = require('nodemailer');
 
 
 emailRoute.post('/', function(req, res, next) {
-  User.findOne({email: req.body.email}, function (err){
+  /*User.findOne({email: req.user}, function (err){
     if (err) {
     throw err;
-  };
+  };*/
   var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -17,13 +17,15 @@ emailRoute.post('/', function(req, res, next) {
       pass: 'Olive2216Lima'
     }
   });
+
   var mailOptions = {
     from: 'John Doe <johndoe@outlook.com',
     to: 'cjelder11@gmail.com',
     subject: 'Order submission',
-    text: 'You have a new order '+req.body.name+'.',
-    html: '<p>'+req.body.email+'</p>'
+    text: 'You have a new order' + req.body.user,
+    html: '<p>You have an order.</p>'
   };
+
   transporter.sendMail(mailOptions, function(error, info) {
     if(error){
       console.log(error);
@@ -34,6 +36,6 @@ emailRoute.post('/', function(req, res, next) {
     }
   });
 });
-});
+//});
 
 module.exports = emailRoute;

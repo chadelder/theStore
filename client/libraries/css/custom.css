@@ -266,3 +266,8 @@ a:hover {
     width: auto;
     max-width: 205px;
 }
+
+/* edit order */
+#goBack {
+  color: #000000;
+}

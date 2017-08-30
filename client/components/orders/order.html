@@ -24,9 +24,9 @@
         </div>
     <div ng-init="getUser()" ng-init="getOrders()">
       <div ng-repeat="user in users | limitTo : 1">
-        <div ng-init="email()">
-          <button class="center-block btn btn-primary btn-lg" ng-click="email()" ui-sref="send">Send Order</button><br>
-            <p>{{user.email}}</p>
+        <div>
+          <button class="center-block btn btn-primary btn-lg" ng-click="email(send)" ui-sref="send">Send Order</button><br>
+            <p>This email address {{user.email}} was used send an email to us. We will confirm you're order shortly.</p>
         </div>
       </div>
     </div>
