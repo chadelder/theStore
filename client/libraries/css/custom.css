@@ -208,6 +208,9 @@ h4 {
 }
 
 .btn-primary {
+    /*margin: 5px;
+    margin-left: 90px;
+    margin-right: -70px;*/
     color: #fff;
     background-color: #463e3e;
     border-color: black;
