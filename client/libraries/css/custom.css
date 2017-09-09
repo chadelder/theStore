@@ -116,7 +116,9 @@ div#backpic {
 /*  Middle Colunm */
 #oldmenu {
     height: 355px;
-    width: auto;
+    /*width: auto;*/
+    max-width: 470px;
+    border-radius: 10px;
 }
 
 #store {
@@ -164,23 +166,25 @@ h4 {
 
 /* bottom row */
 .bottomRow {
-      margin: 88px;
-      margin-top: 20px;
-      min-height: 330px;
-      background-color: #bdbdb7;
-      border: 2px solid black;
-      border-radius: 10px;
-      text-align: center;
-  }
-
-#dog {
-    height: 197px ;
-    width: auto;
-    max-width: 205px;
-    border-radius: 10px
+    margin: 88px;
+    margin-top: 20px;
+    min-height: 330px;
+    max-width: 380px;
+    background-color: #bdbdb7;
+    border: 2px solid black;
+    border-radius: 10px;
+    text-align: center;
 }
 
-#vcu {
+.dog {
+    height: 200px;
+    width: 205px;
+    border-radius: 10px;
+  }
+
+.vcu {
+  height: 200px;
+  width: 205px;
   border-radius: 10px;
 }
 
