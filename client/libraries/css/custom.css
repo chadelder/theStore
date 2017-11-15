@@ -116,14 +116,14 @@ div#backpic {
 /*  Middle Colunm */
 #oldmenu {
     height: 355px;
-    /*width: auto;*/
+    width: 100%;
     max-width: 470px;
     border-radius: 10px;
 }
 
 #store {
     height: 385px;
-    width: 555px;
+    width: 100%;
     border: 2px solid black;
     border-radius: 10px;
     text-align: center;
@@ -142,8 +142,8 @@ h4 {
 /* Right Column */
 .gramps {
     height: 175px;
-    width: auto;
-    max-width: 225px;
+    width: 100%;
+    max-width: 205px;
     border-radius: 10px;
 }
 
@@ -178,13 +178,13 @@ h4 {
 
 .dog {
     height: 200px;
-    width: 205px;
+    width: 225px;
     border-radius: 10px;
   }
 
-.vcu {
+#vcu {
   height: 200px;
-  width: 205px;
+  width: 225px;
   border-radius: 10px;
 }
 
